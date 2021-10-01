@@ -1,0 +1,70 @@
+.foo {
+  color: #ffffff;
+  max-height: 734px;
+  background: linear-gradient(
+    97.32deg,
+    rgba(121, 129, 235, 0.3) 9.51%,
+    rgba(241, 96, 133, 0.3) 91.96%
+  );
+  box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  border-radius: 32px 32px 0px 0px;
+  padding: 50px;
+}
+
+.fooLastBlock {
+  text-align: center;
+}
+.fooText {
+  max-width: 50%;
+  margin: 2rem auto 4rem;
+  font-weight: 300;
+  line-height: 1.95;
+}
+@media (max-width: 1420px) {
+  .foo {
+    padding: 5px;
+  }
+  .foo .blockTitle {
+    font-size: 59px;
+    line-height: 45px;
+  }
+  .fooText {
+    max-width: 100%;
+  }
+  .landingFooterBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .cRight,
+  .footerMenu {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+  }
+}
+@media (max-width: 1200px) {
+  .foo {
+    padding: 5px;
+  }
+  .foo .blockTitle {
+    font-size: 40px;
+    line-height: 45px;
+  }
+  .fooText {
+    max-width: 100%;
+  }
+  .landingFooterBottom {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .cRight,
+  .footerMenu {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+  }
+}
+

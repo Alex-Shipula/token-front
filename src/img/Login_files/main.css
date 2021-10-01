@@ -1,0 +1,846 @@
+/* Variables */
+:root {
+    --linear-button-bg: linear-gradient(97.32deg, #7981EB 9.51%, #F16085 91.96%), #FFAD01;
+    --linear-button-outline: radial-gradient(50% 50% at 50% 50%, #3A2441 0%, rgba(58, 36, 65, 0) 100%);
+    --color-orange: #FFAD01;
+    --title-fsz: 65px;
+    --title-fszm: 45px;
+}
+/* Globals */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&display=swap');
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+.pagination .page-link {
+    color: #212121;
+    text-decoration: none;
+    border: 0;
+}
+
+.gradientButton {
+    width: 219px;
+    /* background: linear-gradient(97.32deg, #7981EB 9.51%, #F16085 91.96%), #FFAD01; */
+    background: var(--linear-button-bg);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 32px;
+    text-decoration: none;
+    justify-content: space-around;
+}
+.gradientButton:hover {
+    color: #dfdfdf;
+}
+.olButton {
+    width: 219px;
+    background: var(--linear-button-bg);  
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 32px;
+    text-decoration: none;
+    justify-content: space-around;
+    border-radius: 8px;
+    flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 32px;
+}
+.orangeButton {
+    background: #FFAD01;
+    border-radius: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 32px;
+
+}
+.orangeButton:hover {
+    color: #dfdfdf;
+}
+
+
+.card-title {
+    color: #ffffff;
+    font-weight: 600;
+}
+.card-body p {
+    color: #d0d0d0;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #010101;
+}
+.starTop {
+    background: url(../img/Star1.png), radial-gradient(129.61% 88.13% at 49.27% 2.67%, #3D2644 0%, #000000 100%);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+/* Header / NAV */
+
+
+/* Hero Section */
+.heroSection {
+    height: 800px;
+    /* background: radial-gradient(129.61% 88.13% at 49.27% 2.67%, #3D2644 0%, #000000 100%); */
+    background: url(../img/Star1.png), radial-gradient(129.61% 88.13% at 49.27% 2.67%, #3D2644 0%, #000000 100%);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.heroSection h1 {
+    font-size: var(--title-fsz);
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+}
+.cloudsHero {
+    background: url(../img/clouds.svg) no-repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+.textOrange { color: var(--color-orange);}
+.contentWrapper .row {
+    justify-content: space-between;
+}
+.heroDogCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.heroLeftBlock, .heroRightBlock {
+    width: 300px;
+    height: 420px;
+    /* left: calc(50% - 300px/2 - 442px);
+    top: 297px; */
+    padding: 16px;
+    background: linear-gradient(163.37deg, rgba(24, 25, 28, 0.25) -1.49%, rgba(24, 25, 28, 0) 100.05%);
+    backdrop-filter: blur(16px);
+    /* Note: backdrop-filter has minimal browser support */
+    border: 1px solid #ffffff;
+    border-radius: 32px;
+    margin: 42px auto;
+}
+
+.heroLeftBlock .card-img-bg, .heroRightBlock .card-img-bg {
+    background: linear-gradient(122.4deg, #7981EB -1.47%, #F16085 102.19%);
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    width: 268px;
+    height: 268px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-img-top {width: 141.2px;}
+
+.heroButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+    .heroSection {
+        height: 580px;
+    }
+    .cloudsHero {
+        background-size: cover;
+        align-items: baseline;
+    }
+    .heroLeftBlock, .heroRightBlock {
+        width: 219px;
+        height: 321px;
+    }
+    .heroLeftBlock .card-img-bg, .heroRightBlock .card-img-bg {
+        width: 187px;
+        width: 187px;
+    }
+    .heroDogCenter img {
+        width: 202px;
+    }
+    .card-img-top {
+        width: 90.8px;
+    }
+    .heroButtons {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Features Section */
+.features {
+    margin-top: 115px;
+    background: radial-gradient(50% 50% at 50% 50%, #3A2441 0%, rgba(58, 36, 65, 0) 100%);
+    /* background: url('../img/star6.png') no-repeat; */
+}
+.blockTitle{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4.5vw;
+    line-height: 79px;    
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 5rem;
+}
+
+    @supports (-webkit-text-stroke: 1px rgba(255, 255, 255, 0.15)) { /* если есть поддержка свойства: невидимый текст посетителям не понравится */
+        .blockTitleOverlay {
+            color: transparent; /* прозрачный цвет букв */
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+            font-size: 7vw;
+            font-weight: bold;
+            line-height: 79px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: -5rem;
+        }
+        
+    }
+
+
+.featRow {
+    justify-content: space-evenly;
+    padding: 10rem 0;
+}
+.featRow .card {
+    width: 227px;
+    height: 268px;
+    background: transparent;
+    border: none;
+}
+.featRow .card img {
+    width: auto;
+    height: 200px;
+    margin: -80px auto;
+    z-index: 1;
+}
+.featRow .card-body {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 120%;
+    text-align: center;
+    color: #C1C1C1;
+    padding-top: 90px;
+    border: 1px solid rgba(250, 250, 250, 0.25);
+    border-radius: 34px;
+}
+.ctitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    color: #ffffff;
+}
+
+
+/* How it works section */
+.howIt {
+    margin-bottom: 4rem;
+}
+.glass {
+    display: flex;
+    justify-content: center;
+    max-width: 1184px;
+    height: 681px;
+    background: linear-gradient(97.32deg, rgba(121, 129, 235, 0.15) 9.51%, rgba(241, 96, 133, 0.15) 91.96%);
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 32px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 30px;
+}
+.glass object {
+    width: 1057px;
+    margin-top: -27px;
+}
+@media screen and (max-width: 768px) {
+    .glass {
+        justify-content: flex-start;
+        height: 558px;
+        overflow: scroll;
+    }
+    .glass img {
+        max-width: 1070px;
+        width: 1070px!important;
+        margin-top: -27px;
+    }
+
+}
+/* Today market section */
+.todayMarket .row {
+    justify-content: center;
+}
+.todayMarket .card {
+    width: 274px;
+    height: 348px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #C5C5C5;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.todayMarket .card-img-bg {
+    background: linear-gradient(55.34deg, #6058D5 3.28%, #816BA4 92.44%);
+    height: 255px;
+}
+.todayMarket .col-md {
+    margin: 15px;
+    max-width: 274px;
+}
+.todayMarket .card-body {
+    padding: 5px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todayMarket .card-body p {
+    margin: -10px 0 5px 0;
+}
+.priceBottom {
+    display: flex;
+
+}
+.regPrice {
+    color: #FFAD01;
+    font-size: 18px;
+    font-weight: 600;
+}
+.todayMarket .gradientButton {
+    margin: 2.6rem auto;
+}
+.todayMarket .gradientButton:hover {
+    color: #f1f1f1;
+}
+.dodRound {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(
+122.4deg
+, #7981EB -1.47%, #F16085 102.19%);
+    box-shadow: 0px 0px 32px rgb(0 0 0 / 25%);
+    border-radius: 50%;
+    color: #ffffff;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.dodRound i {
+    font-size: 19px;
+}
+.dodRound:hover {
+    color: #f1f1f1;
+}
+.sellPrice {
+    position: absolute;
+    left: 95px;
+    font-size: 14px;
+    color: #FFAD01;
+    text-decoration: line-through;
+}
+.ready2nft {
+    position: absolute;
+    width: 129.54px;
+    height: 36.82px;
+    left: 179.72px;
+    top: 14.18px;
+    background: linear-gradient(81.91deg, #7981EB 20.25%, #F16085 87.16%);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ready2nft img {
+    width: 25px;
+    height: 30px;
+    left: 232px;
+    top: 11px;
+    /* background: #FFFFFF; */
+    /* box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25); */
+    -webkit-transform:rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+@media screen and (max-width: 768px) {
+    .todaySecondRow {
+        display: none;
+    }
+}
+
+/* Two learn blocks */
+.learnBlock {
+    width: 100%;
+    height: 459px;
+    background: linear-gradient(97.32deg, #7981EB 9.51%, #F16085 91.96%);
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    display: inline-flex;
+    margin: 3rem auto;
+}
+.learnBlock img {
+    max-width: 100%;
+}
+.lbLeft {
+    width: 60%;
+    padding: 57px 50px;
+}
+.lbRight {
+    width: 39%;
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+}
+
+.lbTitle {
+    font-weight: bold;
+    font-size: 80px;
+    line-height: 98px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 57px;
+}
+.lbContent {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #D9D9D9;
+    margin-bottom: 57px;
+}
+@media screen and (max-width:768px) {
+    .learnBlock {
+        flex-direction:column-reverse;
+        height: auto;
+    }
+    .lbLeft, .lbRight {
+        width: 100%;
+    }
+    .lbTitle {
+        font-size: 40px;
+    }
+    .lbTwo {
+        flex-direction: column;
+    }
+}
+
+/* My DOGS page */
+.topContainer {
+    max-width: 82vw;
+}
+.topConFirst {  padding: 2rem 0;}
+.mydogsLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.mydogsLeft .logo {
+    margin-right: 1rem;
+}
+.profName {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    display: flex;
+    align-items: center;
+
+    color: #0D090E;
+}
+.profStatus {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #C5C5C5;
+}
+.disable {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #C5C5C5;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+.topConDrops {
+    display: flex;
+    justify-content: space-between;
+}
+.myDogs {
+    background-color: #fff;
+}
+.myDogs .card-title {
+    color: #303030;
+}
+.pagi {
+    display: flex;
+    justify-content: center;
+    padding: 32px;
+}
+@media screen and (max-width: 768px) {
+    .topContainer {
+        max-width: 100%;
+    }
+}
+
+
+/* Transaction Page */
+.bodyWrapper {
+    background-color: #fff;
+}
+.tRowTop {
+    padding: 58px 0;
+}
+.tRowTop h2{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 34px;
+    text-transform: uppercase;
+    color: #050406;
+}
+
+/* About us page */
+.aboutFirst .address {
+    font-style: normal;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 120%;
+    text-align: center;
+    color: #303030;
+    white-space: pre;
+}
+.aboutFirst h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 55px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #050406;
+    padding: 55px 0;
+}
+.aboutFirst h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 120%;
+    text-align: center;
+    color: #303030;
+    text-align: center;
+}
+.aboutMainContent h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 120%;
+    text-align: center;
+    color: #303030;
+}
+.aboutMainContent {
+    font-weight: 200;
+}
+.aboutMainContent ul {
+    padding-left: 1rem;
+    list-style-image: url(../img/shield-lock.png); 
+}
+.aboutMainContent ul li {
+    font-size: 17px;
+    line-height: 2.5;
+}
+
+/* My Dog Page */
+.dpRow {
+    display: flex;
+    justify-content: center;
+}
+
+.dpTitles {
+    font-size: 28px;
+    color: #000000;
+    font-weight: normal;
+}
+.dogPageContainer {
+    padding-top: 3rem;
+}
+.dogImgContainer {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 32px;
+    background: linear-gradient(
+55.34deg
+, #FFD34E 3.28%, #FFE38F 92.44%);
+    margin: 0 auto;
+    overflow: hidden;
+}
+.dogImgBage {
+    position: absolute;
+    width: 191.54px;
+    height: 53.82px;
+    right: -47px;
+    top: 17.18px;
+    background: linear-gradient(203.15deg, #7981EB 26.37%, #F16085 74.48%);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dogImg {
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+}
+.dogName {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 120%;
+    color: #000000;
+}
+.owner {
+    font-size: 17px;
+    color: #636363;
+    font-weight: 200;
+}
+.owmerName {
+    color: #FFAD01;
+}
+.ownerTextBottom {
+    margin-top: 32px;
+    font-weight: 200;
+    color: #636363;
+
+}
+.dogAbout {
+    display: flex;
+    justify-content: start;
+    margin-top: 32px;
+}
+.par {
+    margin-right: 2rem;
+}
+.par .parTitle {
+    font-size: 18px;
+    color: #000000;
+}
+.par .parText {
+    font-size: 18px;
+    color: #636363;
+    font-weight: 200;
+}
+.dogStats {
+    margin-top: 32px;
+    font-size: 18px;
+    color: #636363;
+    font-weight: 200;
+}
+
+.racingStats {
+    margin-top: 48px;
+}
+.rsData {
+    display: flex;
+}
+.rsCol {
+    width: 49%;
+}
+.dnaAnalys {
+    margin-top: 48px;
+}
+.dnaSeq {
+    font-weight: 200;
+    color: #636363;
+}
+
+.dogParents, .dogChildren {
+    margin-top: 48px;
+}
+.parentsBlock, .childrenBlock {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0;
+}
+.parentsBlock .card, .childrenBlock .card{
+    height: 348px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+.parentsBlock .card-body, .childrenBlock .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.parentsBlock .card-title, .childrenBlock .card-title {
+    color: #303030;
+}
+.sellBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cp {
+    font-size: 36px;
+    font-weight: bold;
+}
+.sellBlock .gradientButton {
+    width: 420px;
+    height: 54px;
+}
+@media screen and (max-width: 1024px) {
+    .dogImgContainer {
+        width: 100%;
+    }
+    .dpRow {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dogImgContainer {
+        width: 100%;
+        height: 100%;
+    }
+    .dpRow {
+        flex-direction: column;
+    }
+    .parentsBlock .card-img-bg, .childrenBlock .card-img-bg {
+        display: flex;
+    justify-content: center;
+    }
+}
+@media screen and (max-width: 360px) {
+    .dogImgContainer {
+        width: 100%;
+        height: 100%;
+    }
+    .dpRow {
+        flex-direction: column;
+    }
+    .parentsBlock .card, .childrenBlock .card{
+        width: 168px;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+    .parentsBlock .ready2nft, .childrenBlock .ready2nft {
+        left: 77.72px;
+    }
+}
+
+/* Login Page */
+.login-page {
+    height: 800px;
+    background: url(../img/Star1.png), radial-gradient(129.61% 88.13% at 49.27% 2.67%, #3D2644 0%, #000000 100%);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.login-wrapper {
+    margin-top: 8.5rem;
+}
+.enter-email-and-pass {
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #D9D9D9;
+}
+.form-container .form-control {
+    width: 448px;
+    height: 54px;
+    border: 1px solid #B6B6B6;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: transparent;
+}
+.login-footer {
+    color: #ffffff;
+}
+
+/* Footer Section */
+.foo {
+    color: #ffffff;
+    max-height: 734px;
+    background: linear-gradient(97.32deg, rgba(121, 129, 235, 0.3) 9.51%, rgba(241, 96, 133, 0.3) 91.96%);
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(16px);
+    border-radius: 32px 32px 0px 0px;
+    padding: 50px;
+}
+.foo .footerMenu a {
+    color: #ffffff;
+}
+.fooLastBlock {
+    text-align: center;
+}
+.fooText {
+    max-width: 50%;
+    margin: 2rem auto 4rem;
+    font-weight: 300;
+    line-height: 1.95;
+}
+.footer {
+    background-color: #fff;
+    padding: 40px 15px;
+    
+}
+.lfBottom {
+    margin-top: 6rem;
+}
+.landingFooterBottom {
+    width: auto;
+    /* position: absolute; */
+    bottom: 0;
+}
+.cRight {
+    max-width: 39%;
+}
+.footerMenu {
+    max-width: 60%;
+    text-align: end;
+}
+.footerMenu a {
+    color:#151515;
+    text-decoration: none;
+    margin-right: 10px;
+}
+.footerMenu a:hover {
+    color:#c0c0c0;
+    transition: .8s;
+}
+
+@media screen and (max-width: 768px) {
+    .blockTitle {
+        font-size: var(--title-fszm);
+    }
+}

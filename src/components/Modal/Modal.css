@@ -1,0 +1,110 @@
+.modal-header {
+  justify-content: center;
+  text-transform: uppercase;
+}
+.modal-footer {
+  justify-content: center;
+}
+.modal-footer.amount-btn {
+  justify-content: space-evenly;
+}
+.grad-modal-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  max-width: 420px;
+  height: 44px;
+  background: linear-gradient(97.32deg, #7981eb 9.51%, #f16085 91.96%), #ffad01;
+  border-radius: 16px;
+  color: #e1e1e1;
+}
+.grad-modal-button:hover {
+  color: #ffffff;
+}
+.curr-input.form-control {
+  height: 58px;
+  font-weight: 500;
+  font-size: 18px;
+  color: black;
+  border-radius: 20px;
+  background-color: #efefef;
+}
+.change-amount-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  max-width: 210px;
+  height: 44px;
+  background: linear-gradient(0deg, #ffffff, #ffffff), #ffad01;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+.amount-body {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.amonut-body__wrv {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.amount-body__dollars {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 34px;
+  text-transform: uppercase;
+  color: #050406;
+}
+.gradientButton-modal {
+  border: none;
+  width: 219px;
+  /* background: linear-gradient(97.32deg, #7981EB 9.51%, #F16085 91.96%), #FFAD01; */
+  background: var(--linear-button-bg);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 32px;
+  text-decoration: none;
+  justify-content: space-around;
+}
+.gradientButton-modal:hover {
+  color: #dfdfdf;
+}
+.filled-button {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 16px 32px;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  width: 203px;
+  height: 54px;
+  background: linear-gradient(97.32deg, #7981eb 9.51%, #f16085 91.96%);
+  opacity: 0.5;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.button_active {
+  background: linear-gradient(97.32deg, #7981eb 9.51%, #f16085 91.96%);
+  opacity: 1;
+}
