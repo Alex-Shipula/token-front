@@ -5,10 +5,10 @@ const { dogs_abi, access_abi, mixer_abi, token_abi } = require('./abi.js')
 
 
 const forwarderOrigin = 'http://localhost:9010'
-const TOKEN_CONTRACT_ADDR = "0xe67c2cdB32fe9499d34b6169Fd3cC2326C48b43C"
-const ACCESS_CONTRACT_ADDR = "0x16f9e1f9a41D9C6836E7733b1f6AC63db77400c1"
-const DOGS_CONTRACT_ADDR = "0x5481a33Ec1527B033Ec71Fd29C8279DBF26b8367"
-const MIXER_CONTRACT_ADDR = "0xdab32C0c928fD1e79ffFA0E55B3a1De8A11496Ad"
+const TOKEN_CONTRACT_ADDR = "0x262fb23402d548df053771a4723f54cd6fda1591"
+const ACCESS_CONTRACT_ADDR = "0x9e2e9861ed8504b6aaa32e54e3775c07c6bbbbc9"
+const DOGS_CONTRACT_ADDR = "0xa961f940e9fb21d881403eacf62ae49395a07143"
+const MIXER_CONTRACT_ADDR = "0xfa55333df4fa8976beb5b51332c8b8241d0a2b8a"
 
 let onConnect = (accounts) => {
   console.log("connect not handled")

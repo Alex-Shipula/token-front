@@ -32,7 +32,7 @@ const Buy = (props) => {
                                 id="inputCounter"
                                 min="1"
                                 onChange={() => {
-                                    setPrice(Math.abs(priceDog * (Number(document.getElementById("inputCounter").value))));
+                                    setPrice((Math.abs(priceDog * (Number(document.getElementById("inputCounter").value)))).toFixed(8));
                                     setCount(Number(document.getElementById("inputCounter").value));
                                 }}
                             />

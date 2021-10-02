@@ -12,32 +12,44 @@ const Header = (props) => {
     <div className={`container-fluid ${starTop}`}>
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container topNav">
-          <NavLink className="navbar-brand" to="/">
-            <img src={logo} alt="Coin Dogs"></img>
-          </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <div className="navbar-header-social">
+            <NavLink className="navbar-brand" to="/">
+              <img src={logo} alt="Coin Dogs"></img>
+            </NavLink>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="top-social-links soc-ds">
+              <a href="https://www.facebook.com/CoinDogs" target="_blank" class="scroll-to"><i class="fab fa-facebook-square"></i></a>
+              <a href="https://twitter.com/CoinDogs" target="_blank" class="scroll-to"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/company/20171544" target="_blank" class="scroll-to"><i class="fab fa-linkedin"></i></a>
+              <a href="https://instagram.com/coindogs" target="_blank" class="scroll-to"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.pinterest.com/coindogs_game" target="_blank" class="scroll-to"><i class="fab fa-pinterest-square"></i></a>
+              <a href="https://t.me/Coindogs_game" target="_blank" class="scroll-to"><i class="fab fa-telegram-plane"></i></a>
+              {/* <a href="https://medium.com/coindogs-game"><i class="fab fa-medium"></i></a> */}
+            </div>
+          </div>
           <div
             className="collapse navbar-collapse justify-content-end "
             id="navbarSupportedContent"
           >
             <nav className="navbar-nav mb-2 mb-lg-0">
               <NavLink
-              to="/buy"
-              className="nav-link"
-              aria-disabled="true"
-             >
-               Buy
-               </NavLink>
+                to="/buy"
+                className="nav-link"
+                aria-disabled="true"
+              >
+                Buy
+              </NavLink>
               <NavLink
                 to="/convertNTF"
                 className="nav-link"

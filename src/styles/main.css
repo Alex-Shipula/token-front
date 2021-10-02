@@ -19,6 +19,20 @@
     border: 0;
 }
 
+.navbar-header-social {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+.top-social-links {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28px;
+}
+.top-social-links a {
+    color: #ffffff;
+}
 
 .gradientButton {
     width: 219px;
