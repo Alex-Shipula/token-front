@@ -13,9 +13,11 @@ const Header = (props) => {
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container topNav">
           <div className="navbar-header-social">
+            
             <NavLink className="navbar-brand" to="/">
               <img src={logo} alt="Coin Dogs"></img>
             </NavLink>
+           
             <button
               className="navbar-toggler"
               type="button"
@@ -28,13 +30,14 @@ const Header = (props) => {
               <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div class="top-social-links soc-ds">
-              <a href="https://www.facebook.com/CoinDogs" target="_blank" class="scroll-to"><i class="fab fa-facebook-square"></i></a>
-              <a href="https://twitter.com/CoinDogs" target="_blank" class="scroll-to"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.linkedin.com/company/20171544" target="_blank" class="scroll-to"><i class="fab fa-linkedin"></i></a>
-              <a href="https://instagram.com/coindogs" target="_blank" class="scroll-to"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.pinterest.com/coindogs_game" target="_blank" class="scroll-to"><i class="fab fa-pinterest-square"></i></a>
-              <a href="https://t.me/Coindogs_game" target="_blank" class="scroll-to"><i class="fab fa-telegram-plane"></i></a>
+            <div class="top-social-links">
+              <a href="https://www.instagram.com/token_dog/" target="_blank" class="scroll-to"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/gaming/Token.Dogs" target="_blank" class="scroll-to"><i class="fab fa-facebook-square"></i></a>
+              <a href="https://twitter.com/TokenDogs" target="_blank" class="scroll-to"><i class="fab fa-twitter"></i></a>
+              <a href="https://t.me/tokendogs" target="_blank" class="scroll-to"><i class="fab fa-telegram-plane"></i></a>
+              <a href="https://discord.gg/dqxnRnBm" target="_blank" class="scroll-to"><i class="fab fa-discord"></i></a>
+              {/* <a href="https://www.linkedin.com/company/20171544" target="_blank" class="scroll-to"><i class="fab fa-linkedin"></i></a> */}
+              {/* <a href="https://www.pinterest.com/coindogs_game" target="_blank" class="scroll-to"><i class="fab fa-pinterest-square"></i></a> */}
               {/* <a href="https://medium.com/coindogs-game"><i class="fab fa-medium"></i></a> */}
             </div>
           </div>

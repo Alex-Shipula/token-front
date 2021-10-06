@@ -77,33 +77,37 @@ function App() {
         </Route>
 
         <Route path="/buy">
-        <Buy />
+          <Buy />
         </ Route>
+
+        <Route path="/transactions">
+          <Transactions />
+        </Route>
 
         <Route path="/convertNTF/:dogid" component={ConvertToNTF}></Route>
         <GuardedRoute
-        path="/transactions"
-        component={Transactions}
+          path="/transactions"
+          component={Transactions}
         ></GuardedRoute>
 
         <GuardedRoute path="/settings" component={Settings}></GuardedRoute>
 
         <Route path="/market">
-        <Market showElementsStatus={true} ShowConvertPage={false} />
+          <Market showElementsStatus={true} ShowConvertPage={false} />
         </Route>
         <GuardedRoute path="/my-dogs" component={MyDogs}></GuardedRoute>
 
         <Route path="/dog-page/:dogid" component={DogPage}></Route>
 
         <Route path="/about">
-        <About />
+          <About />
         </Route>
 
         <Route path="/Login" state="bar">
-        <Login />
+          <Login />
         </Route>
         <Route>
-        <Redirect to="/" />
+          <Redirect to="/" />
         </Route>
       </Switch>
     </AuthProvider>

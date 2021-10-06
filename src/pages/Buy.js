@@ -1,15 +1,87 @@
 import React, { useState, useEffect } from "react";
+import MetaMaskOnboarding from '@metamask/onboarding'
+import { ethers } from 'ethers';
+import Metamask from "../components/Metamask/Metamask";
+const Web3 = require('web3');
+const metamask = new Metamask();
+const axios = require('axios');
+//const Contract = require('web3-eth-contract');
 
+function isMetaMaskConnect() {
+    console.log(metamask.isMetaMaskInstalled());
+    return metamask.isMetaMaskInstalled()
+}
+
+const { dogs_abi, access_abi, mixer_abi, token_abi } = require('../components/Metamask/abi');
+
+const forwarderOrigin = 'http://localhost:9010';
+const TOKEN_CONTRACT_ADDR = "0x4908A8Fd956fd5F027f95C0495F02E735ae4a9Ee";
+const ACCESS_CONTRACT_ADDR = "0x712097886516001347A9cbE80469f0D448c8F15a";
+const DOGS_CONTRACT_ADDR = "0x61153c29895010D55DFC77c88a82DcFDf00c5545";
+const MIXER_CONTRACT_ADDR = "0xCe9D286ea76Fd22edFa8c884EA75f405e51d3858";
+
+
+
+
+const dogContract = new Web3;
+
+async function tokenPurchase(valueEth) {
+    let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const web3 = new Web3(Web3.givenProvider);
+    const contract = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR, { gas: 30000 });
+    const result = await contract.methods.buyDogCoins().send({ from: accounts[0], value: valueEth });
+    console.log(result);
+    return result
+}
+async function tokenCourse() {
+    const web3 = new Web3(Web3.givenProvider);
+    let contract = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR);
+    const result = await contract.methods.getCoinDogsRate().call();
+    console.log(result);
+    return result
+}
+
+async function balanceOf(receiver) {
+    let accounts = window.ethereum.request({ method: 'eth_requestAccounts' });
+    const web3 = new Web3(Web3.givenProvider)
+    const contract = await new web3.eth.Contract(dogs_abi, DOGS_CONTRACT_ADDR, { from: accounts[0] })
+    return await contract.methods.balanceOf(receiver).send()
+}
+
+async function connectContract() {
+    let accounts = window.ethereum.request({ method: 'eth_requestAccounts' });
+    let contractConnect = new dogContract.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR, { gas: 30000, from: '0x5A5D872E114E717432Af00aB3e4870912224273c' });
+    let course = contractConnect.methods.getCoinDogsRate();
+    const result = await contractConnect.methods.buyDogCoins().send({ from: accounts[0], value: "1000000000000000000" });
+    console.log(dogContract.eth.defaultAccount);
+    console.log(course);
+    console.log(result);
+}
+
+async function getAccount() {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+    console.log(accounts);
+    console.log(metamask.isMetaMaskInstalled());
+    console.log(account);
+}
+// ?????? Promise result tokenCourse() and bigNumber at priceWEI
+//const tokenCourseDog = tokenCourse();
+//console.log(tokenCourseDog);
 
 const Buy = (props) => {
+
     const [show, setShow] = useState(true);
+    
+    const priceDog = 0.00003;
+    const [count, setCount] = useState();
+    const [price, setPrice] = useState();
+
+    const priceWEI = String(price * 1000000000000000000);
+    //console.log(priceWEI);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    const priceDog = 0.00004;
-    const [count, setCount] = useState();
-    const [price, setPrice] = useState();
 
     return (
         <div>
@@ -20,6 +92,7 @@ const Buy = (props) => {
                             deposite
                         </h5>
                         <a type="button" className="btn-close" href={"/"} > </a>
+
                     </div>
                     <div className="modal-body">
                         <div className="mb-3">
@@ -52,7 +125,7 @@ const Buy = (props) => {
 
                     </div>
                     <div className="modal-footer amount-btn">
-                        <a href="#modalWait"
+                        <a href="!#" onClick={() => tokenPurchase(priceWEI)}
                             className="btn grad-modal-button"
                             data-bs-toggle="modal"
                         >Continue</a>
