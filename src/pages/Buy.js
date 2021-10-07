@@ -5,7 +5,7 @@ import Metamask from "../components/Metamask/Metamask";
 const Web3 = require('web3');
 const metamask = new Metamask();
 const axios = require('axios');
-//const Contract = require('web3-eth-contract');
+
 
 function isMetaMaskConnect() {
     console.log(metamask.isMetaMaskInstalled());
@@ -21,18 +21,17 @@ const DOGS_CONTRACT_ADDR = "0x61153c29895010D55DFC77c88a82DcFDf00c5545";
 const MIXER_CONTRACT_ADDR = "0xCe9D286ea76Fd22edFa8c884EA75f405e51d3858";
 
 
-
-
-const dogContract = new Web3;
-
 async function tokenPurchase(valueEth) {
     let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     const web3 = new Web3(Web3.givenProvider);
+    const contractGas = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR);
+    const gas = await contractGas.methods.buyDogCoins().estimateGas({ from: accounts[0], value: valueEth });
     const contract = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR, { gas: 30000 });
     const result = await contract.methods.buyDogCoins().send({ from: accounts[0], value: valueEth });
     console.log(result);
-    return result
+    return result;
 }
+
 async function tokenCourse() {
     const web3 = new Web3(Web3.givenProvider);
     let contract = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR);
@@ -41,38 +40,42 @@ async function tokenCourse() {
     return result
 }
 
-async function balanceOf(receiver) {
-    let accounts = window.ethereum.request({ method: 'eth_requestAccounts' });
-    const web3 = new Web3(Web3.givenProvider)
-    const contract = await new web3.eth.Contract(dogs_abi, DOGS_CONTRACT_ADDR, { from: accounts[0] })
-    return await contract.methods.balanceOf(receiver).send()
-}
-
-async function connectContract() {
-    let accounts = window.ethereum.request({ method: 'eth_requestAccounts' });
-    let contractConnect = new dogContract.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR, { gas: 30000, from: '0x5A5D872E114E717432Af00aB3e4870912224273c' });
-    let course = contractConnect.methods.getCoinDogsRate();
-    const result = await contractConnect.methods.buyDogCoins().send({ from: accounts[0], value: "1000000000000000000" });
-    console.log(dogContract.eth.defaultAccount);
-    console.log(course);
-    console.log(result);
-}
-
-async function getAccount() {
+async function tokenBalanceOff() {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    const account = accounts[0];
-    console.log(accounts);
-    console.log(metamask.isMetaMaskInstalled());
-    console.log(account);
+    const web3 = new Web3(Web3.givenProvider)
+    const contract = new web3.eth.Contract(token_abi, TOKEN_CONTRACT_ADDR, { from: accounts[0] })
+    const result = await contract.methods.balanceOf(accounts[0]).call();
+    console.log(result / Math.pow(10,10));
+    return result / Math.pow(10,10);
 }
+
+async function dogsBalanceOff() {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const web3 = new Web3(Web3.givenProvider)
+    const contract = new web3.eth.Contract(dogs_abi, DOGS_CONTRACT_ADDR, { from: accounts[0] })
+    const result = await contract.methods.balanceOf(accounts[0]).call();
+    console.log(result);
+    return result;
+}
+
+async function createDog() {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const web3 = new Web3(Web3.givenProvider)
+    const contract = new web3.eth.Contract(token_abi, TOKEN_CONTRACT_ADDR, { from: accounts[0] })
+    const result = await contract.methods.mint(accounts[0], 'GetDogIdFromURL()', "https://coindogs.com/WebService.asmx/UnityGet?dog_id= <DOG_ID>").send({ from: accounts[0] })
+    console.log(result);
+    return result;
+}
+
+
 // ?????? Promise result tokenCourse() and bigNumber at priceWEI
 //const tokenCourseDog = tokenCourse();
-//console.log(tokenCourseDog);
+
 
 const Buy = (props) => {
 
     const [show, setShow] = useState(true);
-    
+
     const priceDog = 0.00003;
     const [count, setCount] = useState();
     const [price, setPrice] = useState();
@@ -125,28 +128,26 @@ const Buy = (props) => {
 
                     </div>
                     <div className="modal-footer amount-btn">
-                        <a href="!#" onClick={() => tokenPurchase(priceWEI)}
+                        <a href="#modalWait" onClick={() => tokenPurchase(priceWEI) }
                             className="btn grad-modal-button"
                             data-bs-toggle="modal"
                         >Continue</a>
                     </div>
                 </div>
             </div>
-            <div className="modal fade" id="modalWait" aria-hidden="true"  >
+            <div className="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modalWait" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                     id="modalWait" aria-hidden="true" tabindex="-1">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <a type="button" className="btn-close" href={"/"} > </a>
+                        <div className="modal-body"></div>
                         </div>
                         <div className="modal-body">
-                            <h5 className="text-center"> Wait for transaction... </h5>
+                            <h3 className="text-center"> Wait for transaction... </h3>
                         </div>
-                        <div className="modal-footer amount-btn">
-                            <a href="#modalFail"
-                                className="btn grad-modal-button"
-                                data-bs-toggle="modal"
-                            >Если неудачно то...</a>
+                        <div className="modal-footer">
+                        <div className="modal-body">
+                            </div>
                         </div>
                     </div>
                 </div>

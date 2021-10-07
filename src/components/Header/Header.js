@@ -1,7 +1,7 @@
 //libraries
 import { NavLink } from "react-router-dom";
 //images
-import logo from "../../img/tokendog.svg";
+import logo from "../../img/logo.png";
 import { AuthContext } from "../../App";
 import React, { useContext } from "react";
 const Header = (props) => {
