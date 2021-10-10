@@ -45,7 +45,7 @@ render() {
             <div className="row cloudsHero">
                 <HeroCard dog={this.state.dogs[0]} position='left'/>
                 <div className="heroDogCenter col-md">
-                    <object id="my-svg" type="image/svg+xml" className="heroDogImg" data={maindog}></object>
+                    <object id="my-svg" type="image/svg+xml" className="heroDogImg"  data={maindog}></object>
                     {/* <img className="heroDogImg" src="./img/maindog.svg" alt=""/> */}
                 </div>
                 <HeroCard dog={this.state.dogs[1]} position='right'/>

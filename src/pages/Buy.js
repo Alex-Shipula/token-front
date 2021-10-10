@@ -26,9 +26,9 @@ async function tokenPurchase(valueEth) {
     const web3 = new Web3(Web3.givenProvider);
     const contractGas = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR);
     const gas = await contractGas.methods.buyDogCoins().estimateGas({ from: accounts[0], value: valueEth });
-    const contract = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR, { gas: 30000 });
+    const contract = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR, { gas: gas });
     const result = await contract.methods.buyDogCoins().send({ from: accounts[0], value: valueEth });
-    console.log(result);
+    //console.log(result);
     return result;
 }
 
@@ -36,7 +36,6 @@ async function tokenCourse() {
     const web3 = new Web3(Web3.givenProvider);
     let contract = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR);
     const result = await contract.methods.getCoinDogsRate().call();
-    console.log(result);
     return result
 }
 
@@ -45,8 +44,8 @@ async function tokenBalanceOff() {
     const web3 = new Web3(Web3.givenProvider)
     const contract = new web3.eth.Contract(token_abi, TOKEN_CONTRACT_ADDR, { from: accounts[0] })
     const result = await contract.methods.balanceOf(accounts[0]).call();
-    console.log(result / Math.pow(10,10));
-    return result / Math.pow(10,10);
+    //console.log(result / Math.pow(10, 10));
+    return result / Math.pow(10, 10);
 }
 
 async function dogsBalanceOff() {
@@ -54,7 +53,7 @@ async function dogsBalanceOff() {
     const web3 = new Web3(Web3.givenProvider)
     const contract = new web3.eth.Contract(dogs_abi, DOGS_CONTRACT_ADDR, { from: accounts[0] })
     const result = await contract.methods.balanceOf(accounts[0]).call();
-    console.log(result);
+    //console.log(result);
     return result;
 }
 
@@ -63,30 +62,44 @@ async function createDog() {
     const web3 = new Web3(Web3.givenProvider)
     const contract = new web3.eth.Contract(token_abi, TOKEN_CONTRACT_ADDR, { from: accounts[0] })
     const result = await contract.methods.mint(accounts[0], 'GetDogIdFromURL()', "https://coindogs.com/WebService.asmx/UnityGet?dog_id= <DOG_ID>").send({ from: accounts[0] })
-    console.log(result);
+    //console.log(result);
     return result;
 }
 
-
-// ?????? Promise result tokenCourse() and bigNumber at priceWEI
-//const tokenCourseDog = tokenCourse();
 
 
 const Buy = (props) => {
 
     const [show, setShow] = useState(true);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
-    const priceDog = 0.00003;
+    const [priceDog, setPriceDog] = useState();
     const [count, setCount] = useState();
     const [price, setPrice] = useState();
+    const [transactionHash, setTransactionHash] = useState();
+    const [balanceDog, setBalanceDog] = useState();
+    //console.log(transactionHash);
+    
+    useEffect(() => {
+        tokenCourse().then(res => { setPriceDog(res / 10 ** 10) });
+    },[priceDog])
+    //console.log(priceDog);
+
+    useEffect(() =>{
+        tokenBalanceOff().then(res => { setBalanceDog(res) });
+    },[balanceDog])
+    //console.log(balanceDog);
+
+    const modalSuccess = document.querySelector('#modalSuccess');
+    const modalFail = document.querySelector('#modalFail');
 
     const priceWEI = String(price * 1000000000000000000);
     //console.log(priceWEI);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     return (
+
         <div>
             <div className="modal-dialog">
                 <div className="modal-content">
@@ -128,7 +141,7 @@ const Buy = (props) => {
 
                     </div>
                     <div className="modal-footer amount-btn">
-                        <a href="#modalWait" onClick={() => tokenPurchase(priceWEI) }
+                        <a href="#modalWait" onClick={() => tokenPurchase(priceWEI).then(res => { setTransactionHash(res.transactionHash) })}
                             className="btn grad-modal-button"
                             data-bs-toggle="modal"
                         >Continue</a>
@@ -136,18 +149,26 @@ const Buy = (props) => {
                 </div>
             </div>
             <div className="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modalWait" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                    id="modalWait" aria-hidden="true" tabindex="-1">
+                <div className="modal-dialog  modal-dialog-scrollable"
+                    aria-hidden="true" tabindex="-1">
                     <div className="modal-content">
                         <div className="modal-header">
-                        <div className="modal-body"></div>
+                            <a type="button" className="btn-close" href={"/"} > </a>
                         </div>
                         <div className="modal-body">
-                            <h3 className="text-center"> Wait for transaction... </h3>
-                        </div>
-                        <div className="modal-footer">
-                        <div className="modal-body">
+                            <div className="amount-body">
+                                <h3>Wait for transaction...</h3>
+                                <div className="modal-body"></div>
+                                <div style={(transactionHash !== undefined) ? {} : { display: 'none' }}
+                                    onClick={() => window.location.href = `https://rinkeby.etherscan.io/tx/${transactionHash}`}>
+                                    <a style={{ cursor: "pointer" }}><h4 >Check your transaction</h4></a></div>
+                                <div className="mb-3"></div>
+                                <div className="mb-3"></div>
+                                <h5>Actual balance: {balanceDog} DOG</h5>
                             </div>
+                        </div>
+                        <div className="modal-footer amount-btn">
+                            <div className="mb-4"></div>
                         </div>
                     </div>
                 </div>

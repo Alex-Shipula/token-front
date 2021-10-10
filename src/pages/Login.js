@@ -84,6 +84,35 @@ const Login = () => {
     }
   };
 
+  
+  
+const countDownDate = new Date("Oct 18, 2021 20:00").getTime();
+let x = setInterval(function() {
+
+  let now = new Date().getTime();
+  let cdId = document.getElementById("aircount");
+
+  let distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  cdId? cdId.innerHTML = `
+    <div class="timerItem">${days} DAYS </div>
+    <div class="timerItem"> ${hours} HOURS </div>
+    <div class="timerItem"> ${minutes} MIN </div>
+  `:
+  console.log('none');
+
+  if (distance < 0) {
+    clearInterval(x);
+    cdId? cdId.innerHTML = "EXPIRED" : console.log('none');
+  }
+}, 1000);
+
+
   return (
     <div className="container-fluid login-page">
       <Header withStarImage={false} />
@@ -95,32 +124,20 @@ const Login = () => {
           </div>
         </div>
 
-        <div style={{
-          textAlign: "center"
-        }}>
-          <span className="blockTitle" style={
-            {
-              fontSize: 28,
-              lineHeight: 1
-            }
-          }>
-            Comming soon but you can subscribe for<br />
-            <a href="https://token.dog/air/index.html" style={{ color: "#FFFFFF" }}>
-              AIRDROP
-            </a>
-          </span>
-        </div>
-        {/*
-        
-        Uncomment when needed.
-
-        <div className="enter-email-and-pass">
+        {/* <div className="enter-email-and-pass">
           Enter your email and password from{" "}
           <a href="https://coindogs.com/Register" className="" target="_blank">
             CoinDogs
           </a>{" "}
           to get started
-        </div>
+        </div> */}
+
+        <h2 className="h2air">Login with your coindogs account in:</h2>
+        
+
+        <div className="countAir" id="aircount"></div>    
+
+        <div className="getAirText">but now you can participate our Airdrop by <a href="https://air.token.dog" className="getAirLink">clicking here </a> </div>    
 
         <form className="form-container login-form-main" onSubmit={login}>
           <input
@@ -164,7 +181,7 @@ const Login = () => {
               {metamaskButton}
             </a>
           </div>
-        </form> */}
+        </form>
       </div>
 
       <Footer parentPage="login" />

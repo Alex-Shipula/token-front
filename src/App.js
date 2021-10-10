@@ -16,6 +16,7 @@ import ConvertToNTF from "./pages/ConvertToNFT";
 import ConvertToNFT_Page_2 from "./pages/ConvertToNTF_Page_2";
 import ConvertNFT_Page_3 from "./pages/ConvertNTF_Page_3";
 import Buy from "./pages/Buy";
+import Balance from "./pages/Balance";
 
 
 export const AuthContext = React.createContext(null);
@@ -75,6 +76,10 @@ function App() {
         <Route path="/convertNTF">
           <ConvertToNTF />
         </Route>
+
+        <Route path="/balance">
+          <Balance/>
+        </ Route>
 
         <Route path="/buy">
           <Buy />
