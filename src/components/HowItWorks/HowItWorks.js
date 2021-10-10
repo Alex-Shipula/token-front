@@ -1,8 +1,8 @@
 //components
 import OverlayedTitle from "../OverlayedTitle/OverlayedTitle"
 //images
-import howItSvg from "../../img/how-to-mint.svg"
-import howItPng from "../../img/howItImage.png"
+//import howItSvg from "../../img/how-to-mint.svg"
+import howItPng from "../../img/howitpng.png"
 
 const HowItWorks = () => {
     return(
@@ -11,9 +11,9 @@ const HowItWorks = () => {
             
             <div className="glass">
                 {/* <img src={"./img/howItImage.png"} alt=""/> */}
-                {/* <img src={howItPng} alt=""/> */}
+                <img src={howItPng} alt=""/>
                 {/* data={howItSvg} */}
-                <object id="my-svg" type="image/svg+xml" className="howItSvg" data={howItSvg}></object>
+                {/* <object id="my-svg" type="image/svg+xml" className="howItSvg" data={howItSvg}></object> */}
             </div>
         </div>
     )

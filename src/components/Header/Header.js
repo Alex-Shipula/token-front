@@ -55,7 +55,10 @@ const Header = (props) => {
   function openMetamask() {
     window.open('https://metamask.io/');
   }
-
+  function openFAQ() {
+    window.open('https://air.token.dog/pages/faq.html');
+  }
+  
   return (
     <div className={`container-fluid ${starTop}`}>
       <nav className="navbar navbar-expand-lg navbar-dark">
@@ -110,9 +113,8 @@ const Header = (props) => {
                 aria-disabled="true"
                 onClick={openTokenSale}
               >
-                <div className="balanceDog" style={(metamaskConnected === true) ? { display: 'none' } : {}} >0 DOG</div>
                 <div className="balanceDog" style={((metamaskIsTrue === true) && (metamaskConnected === true)) ? {} : { display: 'none' }} >{balanceDog} DOG</div>
-                <div className="balanceDog" style={(metamaskIsTrue === true) ? { display: 'none' } : {}} >0 DOG</div>
+                <div className="balanceDog" style={((metamaskIsTrue === true) && (metamaskConnected === true)) ? { display: 'none' } : {}} >0 DOG</div>
               </NavLink>
               {/* <NavLink
                 to="/buy"
@@ -187,10 +189,11 @@ const Header = (props) => {
                 </NavLink>
               )}
               <NavLink
-                to="/"
+                to="https://air.token.dog/pages/faq.html"
                 className="nav-link"
                 tabIndex="-1"
                 aria-disabled="true"
+                onClick={openFAQ}
               >
                 FAQ
               </NavLink>

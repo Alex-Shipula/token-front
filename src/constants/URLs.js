@@ -1,5 +1,6 @@
 export const loginURL = 'https://token.coindogs.com/WebService.asmx/GetAuthHash'
-export const hostURL = 'http://nftdog.coindogs.com:8000'
+export const hostURL = 'https://token.dog:8010'
+//export const hostURL = 'http://nftdog.coindogs.com:8000'
 //export const hostURL = 'http://127.0.0.1:8010'
 
 export const coinDogURL = hostURL +'/authorize'

@@ -19,8 +19,7 @@ import nft from "../img/nft.png";
 import { dogsURL, dogChildrenURL,settingsURL } from "../constants/URLs";
 import Metamask from "../components/Metamask/Metamask.js";
 import cookie from "react-cookies";
-import { price, unity } from "../constants/Price";
-import DepositeModal from "../components/Modal/DepositeModal";
+import { price, unity } from "../constants/Price"
 
 const metamask = new Metamask();
 const METAMASK_COOKIE = "metamask_connected";
@@ -50,6 +49,7 @@ class DogPage extends Component {
       races: 0,
       gen: 0,
       name: "",
+      BestTime: 0,
       profileName:"User ID: ", 
       img: "",
       text: "",
@@ -89,29 +89,25 @@ class DogPage extends Component {
 }
   async getDog(_dogID) {
     try {
-      // TODO: make url's via config
-      /*try {
-        const { data } = await axios.get(
-          `https://coindogs.com/WebService.asmx/UnityGet?dog_id=${_dogID}`
-        );
-        if (data) {
-          this.setState({ img: `https://coindogs.com/${data.img}` });
-          this.setState({ bio: data.bio });
-        }
-      } catch (error) {
-        console.error(error);
-      }
-*/
+    
       axios.get(dogsURL + "/" + _dogID).then((resp) => {
-        this.setState({ name: resp.dataю });
+        this.setState({ name: resp.data.Name });
         this.setState({ img: resp.data.CurImage });
         this.setState({ bio: resp.data.BIO });
+
+        this.setState({ birthday: resp.data.Birthday });
+        this.setState({ BestTime: resp.data.BestTime });
+        this.setState({ gold: resp.data.Gold });
+        this.setState({ silver: resp.data.Silver });
+        this.setState({ bronze: resp.data.Bronze });
+
+
         this.setState({ age: resp.data.AgeInWords });
         if (!this.state.img) {
           this.setState({ img: resp.data.CurImage });
         }
         this.setState({ ownerid:resp.data.Owner_ID });
-        
+
         this.setState({ profileName:"User ID: "+resp.data.Owner_ID });
         this.setState({ races: resp.data.Races });
         this.setState({ gen: resp.data.Generation });
@@ -143,6 +139,7 @@ class DogPage extends Component {
 /*console.log((resp.data.Owner_ID!=localStorage.getItem("userID")));
  console.log( isVisibleNFT);
  console.log( isBuyNFT);*/
+ 
         this.setState({ 
           isVisibleSaleBlock:isVisibleSaleBlock });
         this.setState({ isVisibleNFT:isVisibleNFT});
@@ -248,8 +245,9 @@ class DogPage extends Component {
               <div class="col-xs col-lg-5">
                 <div class="card dogImgContainer">
                   <div class="card-img-bg ">
-                    <div style={this.state.isNFT?{}:{display:"none"}}  class="dogImgBage">
-                      <img src="./img/nft.png" alt=""></img>
+                    {/* <div style={this.state.isNFT?{}:{display:"none"}}  class="dogImgBage"> */}
+                    <div style={this.state.IsNFT}  class="dogImgBage">
+                      <img src={nft} alt=""></img>
                     </div>
                     <img src={this.state.img} class="" alt="..."></img>
                   </div>
@@ -257,18 +255,21 @@ class DogPage extends Component {
                 <div style={this.state.isVisibleSaleBlock?{}:{display:"none"}} class="sellBlock">
                   <a style={this.state.isVisbleMint?{}:{display:"none"}}
                     href={"/convertNTF/" + this.state.dogid}
-                    class="gradientButton"
-                  >
+                    class="gradientButton d-none">
                     Mint
                   </a>
-                  {/* (this.state.isVisibleNFT&&this.state.isBuyNFT)?{}:{display:"none"} */}
-                  <DepositeModal style={{}} userName={this.profileName} />
-                  <a style={(this.state.isVisibleNFT&&this.state.isBuyNFT)?{}:{display:"none"}} href="!#" class="gradientButton">
+                  <a style={(this.state.isVisibleNFT&&!this.state.isBuyNFT)?{}:{display:"none"}} href="#" class="gradientButton d-none">
+                    Sell no-NFT
+                  </a>
+                  <a style={(this.state.isVisibleNFT&&this.state.isBuyNFT)?{}:{display:"none"}} href="#" class="gradientButton d-none">
                     Buy NFT
+                  </a>
+                  <a href="https://opensea.io/collection/tokendogs" target="_blank" class="gradientButton">
+                    BUY
                   </a>
                   
                 </div>
-                <div style={{marginLeft:'30%'}} className="priceBottom">
+                <div style={{marginLeft:'30%'}} className="priceBottom d-none">
                     <div style={(this.state.isVisibleSaleBlock)?{}:{display:"none"}} className="regPrice">{this.state.price}</div>
                 </div>
               </div>
@@ -301,7 +302,7 @@ class DogPage extends Component {
                   </div>
                 </div>
                 <div class="dogStats">
-                  {this.state.text} | {this.state.races} races | Gen{" "}
+                  <b>{this.state.text}</b> | {this.state.races} races | Gen{" "}
                   {this.state.gen}
                 </div>
                 <div class="racingStats">
@@ -312,12 +313,12 @@ class DogPage extends Component {
                         <tbody>
                           <tr>
                             <td colspan="2">
-                              1 races | <img src="#" alt=""></img>{" "}
-                              <span class="goldM">0</span>{" "}
+                            {this.state.races} races | <img src="#" alt=""></img>{" "}
+                              <span class="goldM">{this.state.gold}</span>{" "}
                               <img src="#" alt=""></img>{" "}
-                              <span class="silverM">0</span>{" "}
+                              <span class="silverM">{this.state.silver}</span>{" "}
                               <img src="#" alt=""></img>{" "}
-                              <span class="bronzeM">0</span>
+                              <span class="bronzeM">{this.state.bronze}</span>
                             </td>
                           </tr>
                           <tr>
@@ -339,7 +340,9 @@ class DogPage extends Component {
                         <tbody>
                           <tr>
                             <td>Best Time</td>
-                            <td>15.78 sec</td>
+                            <td>{this.state.BestTime} s
+                            
+                            </td>
                           </tr>
                           <tr>
                             <td>Racing</td>
@@ -571,7 +574,7 @@ class DogPage extends Component {
                   </div>
                 </div>
                 {/* Current Price */}
-                <div class="currentPrice">
+                {/* <div class="currentPrice">
                   <div class="price-with-title">
                     <div class="price-with-title__title">
                     Current price
@@ -585,7 +588,7 @@ class DogPage extends Component {
                     Sell
                   </a>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
