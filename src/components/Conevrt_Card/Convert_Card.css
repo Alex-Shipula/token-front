@@ -1,0 +1,14 @@
+.image_block{
+    width: 253px;
+    height: 298px;
+    background: linear-gradient(
+        97.32deg
+        , #7981EB 9.51%, #F16085 91.96%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.image_block img{
+    width: 253px;
+    height: 298px;
+}

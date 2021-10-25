@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="./images/apple-touch-favicon.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>TokenDog air drop program</title>
+</head>
+<body>
+    <div class="container-fluid main-page">
+        <!-- baloon parallax -->
+        <img src="./images/b12.png" data-speed="-5" class="baloon bbln11" alt="">
+        <!-- END baloon parallax -->
+        <div class="hero-section">
+            
+            <div class="row logo-title">
+                <div class="logo">
+                    <img src="./images/tokendog-logo.svg" alt="">
+                </div>
+                <div class="title">
+                    <span>air drop</span> program
+                </div>
+            </div>
+            
+            <div class="row dog-clouds">
+                <img src="./images/b01.png" data-speed="-5" class="baloon bbln" alt="">
+                <img src="./images/b02.png" data-speed="5" class="baloon bbln1" alt="">
+                <img src="./images/b04.png" data-speed="2" class="baloon bbln3" alt="">
+                <img src="./images/b03.png" data-speed="6" class="baloon bbln2" alt="">
+                <img src="./images/b05.png" data-speed="8" class="baloon bbln4" alt="">
+                <img src="./images/b06.png" data-speed="-2" class="baloon bbln5" alt="">
+                <div class="cloud-left">
+                    <!-- <img src="./images/smoke-left.svg" alt=""> -->
+                </div>
+                <img class="top-dog" src="./images/top_dog.svg" alt="">
+                <div class="cloud-right">
+                    <!-- <img src="./images/smoke-right.svg" alt=""> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="container-lg celebrate-text">
+            <!-- <img src="./images/b07.png" data-speed="4" class="baloon bbln6" alt="">
+            <img src="./images/b08.png" data-speed="-9" class="baloon bbln7" alt=""> -->
+            <img src="./images/balrog-air.png" data-speed="1" class="baloon bbln77" alt="">
+            <img src="./images/kewpie-air.png" data-speed="2" class="baloon bbln7" alt="">
+            <img src="./images/skippy-air.png" data-speed="3" class="baloon bbln6" alt="">
+            <div class="celebrate-text__inner">
+                To celebrate his launch, 
+                Token.dog is giving away 
+                <span>5 NFT to 5 Random users </span>
+                at 100$ floor value 
+                today.
+            </div>
+        </div>
+        <div class="container cloud-delimeter">
+            <img src="./images/b09.png" data-speed="6" class="baloon bbln8" alt="">
+
+            <img src="./images/cloud-delimeter.png" alt="">
+        </div>
+        <div class="container-lg how-it">
+            <div class="how-it__title">
+                how it works? <img src="./images/lightning.png" alt="">
+            </div>
+            <div class="how-it__description">
+                Complete the required quests to qualify for the airdrop.
+            </div>
+            <div class="row how-it__blocks">
+                <img src="./images/b10.png" data-speed="-7" class="baloon bbln9" alt="">
+
+                <div class="hiw01 col-xs-4">
+                    <img class="block-num" src="./images/num-one.png" alt="">
+                    <p>Follow 
+                    <a href="#"><b>@TokenDog</b></a></p>
+                    <img class="tweet-img" src="./images/tweet-img.png" alt="">
+                </div>
+                <div class="hiw02 col-xs-4">
+                    <img class="block-num" src="./images/num-two.png" alt="">
+                    <p><b>Like</b> and <b>Retweet</b>
+                    this Tweet post
+                    and @tag 3 
+                    friends</p>
+                    <img class="tweet-img" src="./images/tweet-img.png" alt="">
+                </div>
+                <div class="hiw03 col-xs-4">
+                    <img class="block-num" src="./images/num-three.png" alt="">
+                    <p> Fill the form,
+                    don't forget
+                    your <b>ERC 20</b>
+                    Address</p>
+                </div>
+            </div>
+            <div class="container part-now">
+                <img src="./images/b11.png" data-speed="-5" class="baloon bbln10" alt="">
+                <div class="part-now__title">
+                    Participate now for Free!
+                </div>
+                <div class="part-now__form_congrats">
+                    <div class="congrats">
+                        <div class="congrats__title">congrats!</div>
+                        <div class="congrats__text">You’ve succesfully qualified for the airdrop.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    document.addEventListener("mousemove", parallax);
+    function parallax(e) {
+        this.querySelectorAll('.baloon').forEach(baloon => {
+            
+            const speed = baloon.getAttribute('data-speed');
+            const x = (window.innerWidth - e.pageX * speed)/100;
+            const y = (window.innerHeight - e.pageY * speed)/100;
+
+            baloon.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+    }
+    
+    function validateForm() {
+        var email = document.forms["subform"]["email"].value;
+        var twitUser = document.forms["subform"]["custom_twitter_name"].value;
+        var retweet = document.forms["subform"]["custom_retweet"].value;
+        var ercAddr = document.forms["subform"]["custom_erc20"].value;
+        if (email == "") {
+             alert(`Check form`);
+            // document.querySelector('.error-mes')[0].style= "display: block";
+            return false;
+        }
+        if (!retweet.includes('https://twitter.com/')) {
+            alert("Check retweet link!");
+            return false;
+        }
+    } 
+
+</script>
+</body>
+</html>

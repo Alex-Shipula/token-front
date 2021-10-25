@@ -1,0 +1,23 @@
+.convert_center_block{
+    width: 375px;
+    height: 400px; 
+    background-image: url('https://temp.coindogs.com/l/img/nft-rect.svg') ;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.total{
+    font-size: 28px;
+    line-height: 34px;
+    display: flex;
+    justify-content: center;
+    color: #3E3E3E;
+}
+
+.price{
+    font-weight: bold;
+}

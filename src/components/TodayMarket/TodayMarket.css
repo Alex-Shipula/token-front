@@ -1,0 +1,41 @@
+.todayMarket .row {
+    justify-content: center;
+}
+.todayMarket .card {
+    width: 274px;
+    height: 348px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #C5C5C5;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.todayMarket .card-img-bg {
+    background: linear-gradient(55.34deg, #6058D5 3.28%, #816BA4 92.44%);
+    height: 255px;
+}
+.todayMarket .col-md {
+    margin: 15px;
+    max-width: 274px;
+}
+.todayMarket .card-body {
+    padding: 5px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todayMarket .card-body p {
+    margin: -10px 0 5px 0;
+}
+@media (max-width:768px) {
+    .todayMarket .row {
+        display: grid;
+        grid-gap: 25px;
+    }
+    .todayMarket .col-md {
+        margin: 0;
+        max-width: 100%;
+    }
+}

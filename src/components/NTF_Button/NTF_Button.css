@@ -1,0 +1,57 @@
+.filled-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 16px 32px;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    width: 203px;
+    height: 54px;
+    background: linear-gradient(
+97.32deg
+, #7981EB 9.51%, #F16085 91.96%);
+    opacity: 0.5;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+.button_active{
+    background: linear-gradient(
+97.32deg
+, #7981EB 9.51%, #F16085 91.96%);
+opacity: 1.0;
+}
+
+.filled-button-cancel{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 144px;
+    width: 100%;
+    height: 54px;
+    border-radius: 8px;
+    background: linear-gradient( 
+90deg
+ , #7981eb 0%, #f16085 100%);
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 1px;
+}
+
+.outline_cancel{
+    color: #636363;
+    background-color: #ffffff;
+    padding: 16px 32px;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    max-width: 140px;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+

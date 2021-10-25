@@ -1,0 +1,33 @@
+.card-title {
+    color: #ffffff;
+    font-weight: 600;
+}
+.card-body p {
+    color: #d0d0d0;
+    font-weight: 300;
+    font-size: 16px;
+}
+.priceBottom {
+    display: flex;
+}
+.regPrice {
+    color: #FFAD01;
+    font-size: 18px;
+    font-weight: 600;
+}
+.ready2nft img {
+    width: 25px;
+    height: 30px;
+    left: 232px;
+    top: 11px;
+    /* background: #FFFFFF; */
+    /* box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25); */
+    -webkit-transform:rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.card_img{
+    width:260px;
+}

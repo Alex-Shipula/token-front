@@ -1,0 +1,122 @@
+.navbar-brand img {
+    max-width: 200px;
+}
+.heroSection {
+    height: auto;
+    /* background: radial-gradient(129.61% 88.13% at 49.27% 2.67%, #3D2644 0%, #000000 100%); */
+    background: url(../../img/Star1.png), radial-gradient(129.61% 88.13% at 49.27% 2.67%, #3D2644 0%, #000000 100%);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.heroSection h1 {
+    font-size: 3em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 3rem 0;
+    font-weight: 600;
+}
+.cloudsHero {
+    background: url(../../img/clouds.svg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 640px;
+}
+
+.textOrange { color: var(--color-orange);}
+.contentWrapper .row {
+    justify-content: space-between;
+}
+.heroDogCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.heroLeftBlock, .heroRightBlock {
+    width: 300px;
+    height: 420px;
+    /* left: calc(50% - 300px/2 - 442px);
+    top: 297px; */
+    padding: 16px;
+    background: linear-gradient(163.37deg, rgba(24, 25, 28, 0.25) -1.49%, rgba(24, 25, 28, 0) 100.05%);
+    backdrop-filter: blur(16px);
+    /* Note: backdrop-filter has minimal browser support */
+    border: 1px solid #ffffff;
+    border-radius: 32px;
+    margin: 42px auto;
+}
+
+.heroLeftBlock .card-img-bg, .heroRightBlock .card-img-bg {
+    background: linear-gradient(122.4deg, #7981EB -1.47%, #F16085 102.19%);
+    box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    width: 268px;
+    height: 268px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-img-top {width: 241.2px;}
+
+.heroButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+.heroButtons button {
+    width: auto;
+}
+.heroButtons a {
+    color: #ffffff;
+    margin-left: 12px;
+    width: 340px; 
+    height: 60px;
+    font-size: 17px;
+}
+@media screen and (max-width: 768px) {
+    .heroSection {
+        height: auto;
+    }
+    .hero-buy {display: none;}
+    .cloudsHero {
+        background-size: cover;
+        align-items: baseline;
+    }
+    .heroButtons button {
+        margin: -2rem 0 0 0;
+    }
+    .heroLeftBlock, .heroRightBlock {
+        width: 219px;
+        height: 321px;
+    }
+    .heroLeftBlock .card-img-bg, .heroRightBlock .card-img-bg {
+        width: 187px;
+        width: 187px;
+    }
+    .heroDogCenter img {
+        width: 202px;
+    }
+    .card-img-top {
+        width: 90.8px;
+    }
+    .heroButtons {
+        margin-top: -1.5rem;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .heroButtons a {
+        margin-bottom: 28px;
+        margin-left: 2px;
+    }
+    .olButton {
+        width: 160px;
+        padding: 15px 25px;
+        margin: 0;
+    }
+    .gradientButton {
+        width: 160px;
+        font-size: 14px;
+        line-height: 20px;
+        padding: 10px 12px;
+    }
+}
