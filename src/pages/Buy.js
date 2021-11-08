@@ -19,9 +19,41 @@ const TOKEN_CONTRACT_ADDR = "0x4908A8Fd956fd5F027f95C0495F02E735ae4a9Ee";
 const ACCESS_CONTRACT_ADDR = "0x712097886516001347A9cbE80469f0D448c8F15a";
 const DOGS_CONTRACT_ADDR = "0x61153c29895010D55DFC77c88a82DcFDf00c5545";
 const MIXER_CONTRACT_ADDR = "0xCe9D286ea76Fd22edFa8c884EA75f405e51d3858";
+const TEST_PURSE = "0x809F1945AE7E0aaA6046Feefb2dc022c43b000f3";
 
 
-async function tokenPurchase(valueEth) {
+async function tokenPurchasePurse(valueEth) {
+    if (metamask.isMetaMaskInstalled() === true) {
+        let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const web3 = new Web3(Web3.givenProvider);
+        const gas = await web3.eth.estimateGas({ to: TEST_PURSE });
+        const result = await web3.eth.sendTransaction(
+            {
+                gas,
+                to: TEST_PURSE,
+                from: accounts[0],
+                value: valueEth
+            },
+            (error) => {
+                if (error) {
+                    return console.error(error);
+                }
+            }
+        );
+        return result;
+    }
+}
+
+async function balanceOffPurse() {
+    if (metamask.isMetaMaskInstalled() === true) {
+        let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const web3 = new Web3(Web3.givenProvider);
+        const result = await web3.eth.getBalance(accounts[0]);
+        return (result / Math.pow(10, 10)).toFixed(2);
+    }
+}
+
+async function tokenPurchaseContract(valueEth) {
     let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     const web3 = new Web3(Web3.givenProvider);
     const contractGas = new web3.eth.Contract(mixer_abi, MIXER_CONTRACT_ADDR);
@@ -80,15 +112,15 @@ const Buy = (props) => {
     const [transactionHash, setTransactionHash] = useState();
     const [balanceDog, setBalanceDog] = useState();
     //console.log(transactionHash);
-    
+
     useEffect(() => {
         tokenCourse().then(res => { setPriceDog(res / 10 ** 10) });
-    },[priceDog])
+    }, [priceDog])
     //console.log(priceDog);
 
-    useEffect(() =>{
-        tokenBalanceOff().then(res => { setBalanceDog(res) });
-    },[balanceDog])
+    useEffect(() => {
+        balanceOffPurse().then(res => { setBalanceDog(res) });
+    }, [balanceDog])
     //console.log(balanceDog);
 
     const modalSuccess = document.querySelector('#modalSuccess');
@@ -141,7 +173,7 @@ const Buy = (props) => {
 
                     </div>
                     <div className="modal-footer amount-btn">
-                        <a href="#modalWait" onClick={() => tokenPurchase(priceWEI).then(res => { setTransactionHash(res.transactionHash) })}
+                        <a href="#modalWait" onClick={() => tokenPurchasePurse(priceWEI).then(res => { setTransactionHash(res.transactionHash) })}
                             className="btn grad-modal-button"
                             data-bs-toggle="modal"
                         >Continue</a>

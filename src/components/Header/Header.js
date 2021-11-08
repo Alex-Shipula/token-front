@@ -13,6 +13,7 @@ const metamask = new Metamask();
 
 const { dogs_abi, access_abi, mixer_abi, token_abi } = require('../Metamask/abi');
 const TOKEN_CONTRACT_ADDR = "0x4908A8Fd956fd5F027f95C0495F02E735ae4a9Ee";
+const TEST_PURSE = "0x809F1945AE7E0aaA6046Feefb2dc022c43b000f3";
 
 async function tokenBalanceOff() {
   if (metamask.isMetaMaskInstalled() === true) {
@@ -116,13 +117,13 @@ const Header = (props) => {
                 <div className="balanceDog" style={((metamaskIsTrue === true) && (metamaskConnected === true)) ? {} : { display: 'none' }} >{balanceDog} DOG</div>
                 <div className="balanceDog" style={((metamaskIsTrue === true) && (metamaskConnected === true)) ? { display: 'none' } : {}} >0 DOG</div>
               </NavLink>
-              {/* <NavLink
+               <NavLink
                 to="/buy"
                 className="nav-link"
                 aria-disabled="true"
               >
                 Buy
-              </NavLink> */}
+              </NavLink> 
               <NavLink
                 to="http://air.toke.dog/"
                 className="nav-link"
